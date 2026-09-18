@@ -1,1 +1,131 @@
-<!-- placeholder while uploading -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IBC Accord Chapter, Visakhapatnam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="stage">
+<div class="bg" aria-hidden="true"></div>
+<header>
+  <div class="brand" aria-label="IBC International Business Connects">
+    <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#ff6a13" stroke-width="4"><circle cx="38" cy="34" r="20"/><circle cx="62" cy="34" r="20"/><circle cx="50" cy="58" r="20"/><path d="M18 78h64M26 88h48" stroke-width="3" opacity=".7"/></g></svg>
+    <div><div class="word">IBC</div><div class="sub">International Business Connects</div></div>
+  </div>
+  <div class="compass"><b>Connect</b><i>Collaborate</i><span>Grow</span><div class="rule"></div></div>
+</header>
+<section class="hero">
+  <p class="chapter">IBC Accord Chapter, Visakhapatnam</p>
+  <h1>People. Opportunities. <em>Growth.</em></h1>
+  <p class="hero-desc">A community of entrepreneurs, professionals and business owners who connect, collaborate and grow together.</p>
+  <div class="pledge">“Stronger Businesses<br>A Stronger Community”<span></span></div>
+</section>
+<section class="roster" aria-label="Chapter members">
+  <div class="carousel-shell">
+    <button class="nav-btn" id="prevMembers" aria-label="Previous 5 members">‹</button>
+    <div class="members-window">
+      <div class="members-track" id="memberRail"></div>
+    </div>
+    <button class="nav-btn" id="nextMembers" aria-label="Next 5 members">›</button>
+  </div>
+</section>
+
+<section class="stats" aria-label="Chapter at a glance">
+  <div class="stat">
+    <span class="stat-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9.5" cy="7" r="3"></circle>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 4.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+    </span>
+    <div><b>20+</b><small>Members</small></div>
+  </div>
+
+  <div class="stat">
+    <span class="stat-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 12h10"></path>
+        <path d="M14 9l3 3-3 3"></path>
+        <path d="M10 15l-3-3 3-3"></path>
+        <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+      </svg>
+    </span>
+    <div><b>150+</b><small>Business Referrals</small></div>
+  </div>
+
+  <div class="stat">
+    <span class="stat-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+        <path d="M8 12l3 3 5-6"></path>
+      </svg>
+    </span>
+    <div><b>25</b><small>Business Closed</small></div>
+  </div>
+
+  <button class="stat stat-project" id="openProjectEditor" type="button" aria-label="Edit next meeting">
+    <span class="stat-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 19.5V8.5a2 2 0 0 1 2-2h4l2-2h6a2 2 0 0 1 2 2v13"></path>
+        <path d="M8 14h8"></path>
+        <path d="M12 10v8"></path>
+      </svg>
+    </span>
+    <div><b id="nextProjectsCount">--</b><small>Next Meeting</small></div>
+  </button>
+
+  <div class="together">Together We Grow</div>
+</section>
+
+</div>
+
+<div class="meeting-alert" id="meetingAlert" role="status" aria-live="polite">
+  <button class="meeting-alert-close" id="meetingAlertClose" type="button" aria-label="Close meeting alert">×</button>
+  <div class="meeting-alert-title">IBC Meeting Alert</div>
+  <div class="meeting-alert-text" id="meetingAlertText">Meeting today.</div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<section class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileName"></section>
+
+
+<div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+  <button class="project-close" id="projectClose" aria-label="Close project editor">×</button>
+  <div class="project-inner">
+    <h2 id="projectModalTitle">Next Meeting</h2>
+    <div class="project-sub">Edit the upcoming meeting details and upload a meeting image. Changes are saved on this browser.</div>
+    <div class="project-grid">
+      <div>
+        <div class="project-preview">
+          <img id="projectPreviewImage" alt="Next meeting preview">
+          <div class="empty" id="projectEmpty">No meeting image uploaded yet</div>
+        </div>
+        <div class="project-name-view" id="projectNameView">Upcoming Meeting</div>
+        <div class="project-desc-view" id="projectDescView">Add the next meeting details here.</div>
+      </div>
+      <div class="project-form">
+        <label for="projectNameInput">Meeting Name</label>
+        <input id="projectNameInput" type="text" placeholder="Enter meeting name">
+        <label for="projectDescInput">Meeting Description</label>
+        <textarea id="projectDescInput" placeholder="Short description of the upcoming meeting"></textarea>
+        <label for="projectImageInput">Meeting Image</label>
+        <input id="projectImageInput" type="file" accept="image/*">
+        <div class="project-actions">
+          <button class="project-btn" id="projectClear" type="button">Clear</button>
+          <button class="project-btn primary" id="projectSave" type="button">Save Meeting</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
